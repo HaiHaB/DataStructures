@@ -9,6 +9,7 @@ public:
 	Graph(const int V);
 	void AddEdge(const int u, const int v);
 	void BFS(const int i);
+	~Graph();
 	
 private:
 	int		m_V;		// The number of vertex;
@@ -65,7 +66,10 @@ void Graph::BFS(const int i)
 	cout << endl;
 }
 
-
+Graph::~Graph()
+{
+	delete[] m_pAdj;
+}
 int main ()
 {
  // Create a graph given in the above diagram

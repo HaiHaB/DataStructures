@@ -10,7 +10,8 @@ public:
 	void AddEdge(const int u, const int v);
 	void DFS(const int i);
 	void DFSHelper(const int i, bool *visited);
-	
+	~Graph();
+
 private:
 	int		m_V;		// The number of vertex;
 	list<int>	*m_pAdj;	// The adjacent list;
@@ -58,6 +59,11 @@ void Graph::DFSHelper(const int i, bool *visited)
 		for (int a : m_pAdj[i])
 			DFSHelper(a, visited);
 	}
+}
+
+Graph::~Graph()
+{
+	delete[] m_pAdj;
 }
 
 int main ()
