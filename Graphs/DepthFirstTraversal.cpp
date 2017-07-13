@@ -34,7 +34,7 @@ void Graph::AddEdge(const int u, const int v)
 
 void Graph::DFS(const int i)
 {
-	if ((i < 0) || (i > m_V))
+	if ((i < 0) || (i >= m_V))
 	{
 		cout << "invalid input: " << i << endl;
 		return;
@@ -69,21 +69,26 @@ Graph::~Graph()
 int main ()
 {
  // Create a graph given in the above diagram
-    Graph g(4);
+    Graph g(7);
     g.AddEdge(0, 1);
-    g.AddEdge(0, 2);
+    g.AddEdge(0, 5);
+    g.AddEdge(0, 6);
     g.AddEdge(1, 2);
-    g.AddEdge(2, 0);
     g.AddEdge(2, 3);
-    g.AddEdge(3, 3);
+    g.AddEdge(3, 4);
  
+    cout << "Depth First Traversal from vertex 0\n";
+    g.DFS(0);
+
     cout << "Depth First Traversal from vertex 2\n";
     g.DFS(2);
 
-    cout << "Depth First Traversal from vertex 7\n";
-
-    g.DFS(7);
+    cout << "Depth First Traversal from vertex 5\n";
+    g.DFS(5);
  
+    cout << "Depth First Traversal from vertex 7\n";
+    g.DFS(7);
+
     return 0;
 }
 

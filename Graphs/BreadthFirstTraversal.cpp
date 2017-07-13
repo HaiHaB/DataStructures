@@ -33,7 +33,7 @@ void Graph::AddEdge(const int u, const int v)
 
 void Graph::BFS(const int i)
 {
-	if ((i <0) || (i > m_V))
+	if ((i <0) || (i >= m_V))
 	{
 		cout << "invalid starting node at " << i << endl;
 		return;
@@ -73,19 +73,26 @@ Graph::~Graph()
 int main ()
 {
  // Create a graph given in the above diagram
-    Graph g(4);
+    Graph g(7);
     g.AddEdge(0, 1);
-    g.AddEdge(0, 2);
+    g.AddEdge(0, 5);
+    g.AddEdge(0, 6);
     g.AddEdge(1, 2);
-    g.AddEdge(2, 0);
     g.AddEdge(2, 3);
-    g.AddEdge(3, 3);
+    g.AddEdge(3, 4);
  
-    cout << "Following is Breadth First Traversal "
-         << "(starting from vertex 2) \n";
+    cout << "Breadth First Traversal from vertex 0) \n";
+    g.BFS(0);
+    
+    cout << "Breadth First Traversal from vertex 2) \n";
     g.BFS(2);
+
+    cout << "Breadth First Traversal from vertex 5) \n";
+    g.BFS(5);
+
+    cout << "Breadth First Traversal from vertex 7) \n";
     g.BFS(7);
- 
+
     return 0;
 }
 
